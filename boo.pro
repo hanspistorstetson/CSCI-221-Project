@@ -27,8 +27,6 @@ SOURCES += main.cpp\
     gui/activitysearch.cpp \
     gui/activitywindow.cpp \
     gui/checkinwindow.cpp \
-    gui/qrcodefound.cpp \
-    gui/qrnotfound.cpp \
 	gui/user_list.cpp \
 	gui/user_search.cpp \
 	gui/user_view.cpp\
@@ -50,8 +48,6 @@ HEADERS  += gui/mainwindow.h \
     gui/activitysearch.h \
     gui/activitywindow.h \
     gui/checkinwindow.h \
-    gui/qrcodefound.h \
-    gui/qrnotfound.h \
 	gui/user_list.h \
 	gui/user_search.h \
 	gui/user_view.h \
@@ -73,8 +69,6 @@ FORMS    += gui/mainwindow.ui \
     gui/activitysearch.ui \
     gui/activitywindow.ui \
     gui/checkinwindow.ui \
-    gui/qrcodefound.ui \
-    gui/qrnotfound.ui \
 	gui/user_list.ui \
 	gui/user_search.ui \
 	gui/user_view.ui \ 
