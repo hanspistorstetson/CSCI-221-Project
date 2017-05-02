@@ -1,5 +1,6 @@
 #include "prereqselectwindow.h"
 #include "ui_prereqselectwindow.h"
+#include "database/activity.h"
 #include <iostream>
 
 /* TODO
@@ -12,10 +13,11 @@ PrereqSelectWindow::PrereqSelectWindow(QWidget *parent) :
     ui(new Ui::PrereqSelectWindow)
 {
     ui->setupUi(this);
-    for(int i = 0; i<5;i++)
-    {
-    ui->prereqListWidget->addItem("Activity information + more information");
-    }
+//    for(int i = 0; i<acts.size();i++)
+//    {
+//      ui->treeWidget->
+//    }
+//    ui->treeWidget->
 }
 
 PrereqSelectWindow::~PrereqSelectWindow()

@@ -12,7 +12,8 @@ class PrereqSelectWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit PrereqSelectWindow(QWidget *parent = 0);
+//    explicit PrereqSelectWindow(QWidget *parent, std::vector<Activity*>);
+    explicit PrereqSelectWindow(QWidget *parent =0);
     ~PrereqSelectWindow();
 
 private slots:

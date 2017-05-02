@@ -1,6 +1,5 @@
 #include "gui/activitycreatewindow.h"
 #include "ui_activitycreatewindow.h"
-#include "prereqselectwindow.h"
 #include "database/activity.h"
 #include "gui/prereqselectwindow.h"
 
@@ -40,11 +39,13 @@ void ActivityCreateWindow::on_createActivityButton_released()
    }
    Activity::createActivity(name,1,status);
     this->close();
+
 }
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
 
+    //PrereqSelectWindow* psw = new PrereqSelectWindow(this, acts);
     PrereqSelectWindow psw;
     psw.setModal(true);
     psw.exec();
