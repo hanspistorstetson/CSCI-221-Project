@@ -1,6 +1,7 @@
 #ifndef USER_SEARCH_H
 #define USER_SEARCH_H
 
+#include <QListWidgetItem>
 #include <QDialog>
 
 namespace Ui{
@@ -18,7 +19,7 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::user_search *ui;

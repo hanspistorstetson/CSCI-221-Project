@@ -9,8 +9,6 @@ INPUT(
 ./debug\activitysearch.o
 ./debug\activitywindow.o
 ./debug\checkinwindow.o
-./debug\qrcodefound.o
-./debug\qrnotfound.o
 ./debug\user_list.o
 ./debug\user_search.o
 ./debug\user_view.o
@@ -31,8 +29,6 @@ INPUT(
 ./debug\moc_activitysearch.o
 ./debug\moc_activitywindow.o
 ./debug\moc_checkinwindow.o
-./debug\moc_qrcodefound.o
-./debug\moc_qrnotfound.o
 ./debug\moc_user_list.o
 ./debug\moc_user_search.o
 ./debug\moc_user_view.o

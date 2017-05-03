@@ -18,11 +18,7 @@ user_view::~user_view()
 
 void user_view::on_pushButton_clicked()
 {
-    user_search userSearch;
-    this->hide();
-    userSearch.setModal(true);
-    userSearch.exec();
-    this->show();
+    this->close();
 }
 
 void user_view::on_pushButton_2_clicked()

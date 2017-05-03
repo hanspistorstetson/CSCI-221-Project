@@ -26,14 +26,14 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>200</x>
+     <y>240</y>
      <width>81</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;--</string>
+    <string>Back</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -49,23 +49,10 @@
     <string>Users</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>240</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View User</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>120</x>
      <y>240</y>
      <width>75</width>
      <height>23</height>

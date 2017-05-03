@@ -9,8 +9,6 @@ INPUT(
 ./release\activitysearch.o
 ./release\activitywindow.o
 ./release\checkinwindow.o
-./release\qrcodefound.o
-./release\qrnotfound.o
 ./release\user_list.o
 ./release\user_search.o
 ./release\user_view.o
@@ -31,8 +29,6 @@ INPUT(
 ./release\moc_activitysearch.o
 ./release\moc_activitywindow.o
 ./release\moc_checkinwindow.o
-./release\moc_qrcodefound.o
-./release\moc_qrnotfound.o
 ./release\moc_user_list.o
 ./release\moc_user_search.o
 ./release\moc_user_view.o
