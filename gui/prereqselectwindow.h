@@ -12,12 +12,15 @@ class PrereqSelectWindow : public QDialog
     Q_OBJECT
 
 public:
-//    explicit PrereqSelectWindow(QWidget *parent, std::vector<Activity*>);
-    explicit PrereqSelectWindow(QWidget *parent =0);
+    explicit PrereqSelectWindow(QWidget *parent, std::vector<Activity*>);
     ~PrereqSelectWindow();
 
 private slots:
     void on_cancelButton_released();
+
+    void on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_chooseButton_released();
 
 private:
     Ui::PrereqSelectWindow *ui;

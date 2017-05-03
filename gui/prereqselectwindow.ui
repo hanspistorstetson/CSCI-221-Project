@@ -48,7 +48,7 @@
     <item>
      <widget class="QPushButton" name="chooseButton">
       <property name="text">
-       <string>Select</string>
+       <string>Add Selected</string>
       </property>
      </widget>
     </item>
@@ -61,30 +61,25 @@
     </item>
    </layout>
   </widget>
-  <widget class="QListWidget" name="prereqListWidget">
+  <widget class="QListWidget" name="prereqSelectList">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>60</y>
-     <width>321</width>
+     <x>10</x>
+     <y>50</y>
+     <width>181</width>
      <height>241</height>
     </rect>
    </property>
   </widget>
-  <widget class="QTreeWidget" name="treeWidget">
+  <widget class="QListWidget" name="prereqAddedList">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>256</width>
-     <height>192</height>
+     <x>210</x>
+     <y>50</y>
+     <width>181</width>
+     <height>241</height>
     </rect>
    </property>
-   <column>
-    <property name="text">
-     <string notr="true">1</string>
-    </property>
-   </column>
   </widget>
  </widget>
  <resources/>

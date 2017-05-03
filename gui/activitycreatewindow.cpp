@@ -44,11 +44,10 @@ void ActivityCreateWindow::on_createActivityButton_released()
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
-
-    //PrereqSelectWindow* psw = new PrereqSelectWindow(this, acts);
-    PrereqSelectWindow psw;
+    /*
+    PrereqSelectWindow* psw = new PrereqSelectWindow(this, Activity::getAllActivities());
     psw.setModal(true);
     psw.exec();
-
-
+    delete psw;
+    */
 }
