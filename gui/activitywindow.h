@@ -1,6 +1,7 @@
 #ifndef ACTIVITYWINDOW_H
 #define ACTIVITYWINDOW_H
 #include <QDialog>
+#include "database/activity.h"
 
 namespace Ui {
 class ActivityWindow;
@@ -19,6 +20,9 @@ private slots:
 
 
     void on_back_released();
+signals:
+    void get_activity();
+
 
 private:
     Ui::ActivityWindow *ui;

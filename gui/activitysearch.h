@@ -21,6 +21,8 @@ private slots:
 
     void on_back_released();
 
+    void on_searchButton_released();
+
 private:
     Ui::ActivitySearch *ui;
 };
