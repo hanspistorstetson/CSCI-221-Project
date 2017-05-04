@@ -13,21 +13,11 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QListWidget" name="prereqListWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>321</width>
-     <height>211</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="prereqLabel">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>9</y>
+     <x>150</x>
+     <y>10</y>
      <width>251</width>
      <height>41</height>
     </rect>
@@ -36,7 +26,7 @@
     <string>Select Pre-Reqs</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -58,7 +48,7 @@
     <item>
      <widget class="QPushButton" name="chooseButton">
       <property name="text">
-       <string>Select</string>
+       <string>Add Selected</string>
       </property>
      </widget>
     </item>
@@ -70,6 +60,26 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QListWidget" name="prereqSelectList">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>181</width>
+     <height>241</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="prereqAddedList">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>50</y>
+     <width>181</width>
+     <height>241</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

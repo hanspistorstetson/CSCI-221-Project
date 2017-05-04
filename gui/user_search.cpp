@@ -25,7 +25,16 @@ void user_search::on_pushButton_clicked()
     this->show();
 }
 
-void user_search::on_pushButton_4_clicked()
+//void user_search::on_pushButton_4_clicked()
+//{
+//    user_view userView;
+//    this->hide();
+//    userView.setModal(true);
+//    userView.exec();
+//    this->show();
+//}
+
+void user_search::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     user_view userView;
     this->hide();

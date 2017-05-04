@@ -2,6 +2,8 @@
 #include "ui_listactivities.h"
 #include "gui/activitysearch.h"
 #include "gui/activitywindow.h"
+#include "database/activity.h"
+#include <vector>
 
 
 ListActivities::ListActivities(QWidget *parent) :
@@ -9,12 +11,13 @@ ListActivities::ListActivities(QWidget *parent) :
     ui(new Ui::ListActivities)
 {
     ui->setupUi(this);
-    for (int t = 0; t<100;t++)
+   /*std::vector<Activity*> eventActivity;
+    eventActivity=Activity::getAllActivities();
+    for (int t = 0; t<eventActivity.size();t++)
     {
-        ui->listWidget->addItem("test " + QString::number(i));
-
-        i++;
+        ui->listWidget->addItem(eventActivity.at(t).getActivityName());
     }
+    */
 }
 
 ListActivities::~ListActivities()
@@ -33,6 +36,8 @@ void ListActivities::on_pushButton_released()
 
 void ListActivities::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+
+
     ActivityWindow la;
     this->hide();
     la.setModal(true);
