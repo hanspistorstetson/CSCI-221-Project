@@ -3,7 +3,10 @@
 #include "gui/checkinwindow.h"
 #include "gui/listactivities.h"
 #include <QString>
+#include "database/checkin.h"
 #include "QRCapture.h"
+#include "database/user.h"
+#include <vector>
 
 ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
@@ -13,6 +16,16 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     activity=act;
     QString name = QString::fromStdString(activity->getActivityName());
     ui->label_2->setText(name);
+
+    std::vector<Checkin*> listCheckIn = activity->getCheckins();
+   for(unsigned int i; i<listCheckIn.size();i++)
+   {
+
+      User* user = User::loadUserById(listCheckIn.at(i)->getUserId());
+        QString name = QString::fromStdString(user->getUserFname());
+       ui->listWidget->addItem(name);
+   }
+
 }
 
 ActivityWindow::~ActivityWindow()
@@ -24,6 +37,17 @@ void ActivityWindow::on_QR_released()
 {
     Camera* scanner = new Camera(this, activity);
     scanner->show();
+    ui->listWidget->clear();
+    std::vector<Checkin*> listCheckIn = activity->getCheckins();
+   for(unsigned int i; i<listCheckIn.size();i++)
+   {
+
+      User* user = User::loadUserById(listCheckIn.at(i)->getUserId());
+        QString name = QString::fromStdString(user->getUserFname());
+       ui->listWidget->addItem(name);
+   }
+
+
 }
 
 
