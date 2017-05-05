@@ -1,7 +1,7 @@
 CONFIG += c++11
 CONFIG -= app_bundle
 include(scan/QZXing.pri)
-QT       += core gui multimedia widgets
+QT       += core gui multimedia widgets multimediawidgets
 INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
 TEMPLATE = app
@@ -34,7 +34,10 @@ SOURCES += main.cpp \
     QRScanner.cpp \
     gen/BitBuffer.cpp \
     gen/QrCodeGen.cpp \
-    gen/QrSegment.cpp
+    gen/QrSegment.cpp \
+    QRCapture.cpp \
+    imagesettings.cpp \
+    videosettings.cpp
 
 
 HEADERS  += gui/mainwindow.h \
@@ -64,7 +67,10 @@ HEADERS  += gui/mainwindow.h \
     include/QRScanner.h \
     include/gen/BitBuffer.hpp \
     include/gen/QrCodeGen.hpp \
-    include/gen/QrSegment.hpp
+    include/gen/QrSegment.hpp \
+    include/imagesettings.h \
+    include/videosettings.h \
+    include/QRCapture.h
 
 FORMS    += gui/mainwindow.ui \
     gui/eventcreatewindow.ui \
@@ -80,7 +86,10 @@ FORMS    += gui/mainwindow.ui \
     gui/user_list.ui \
     gui/user_search.ui \
     gui/user_view.ui \ 
-    gui/prereqselectwindow.ui
+    gui/prereqselectwindow.ui \
+    imagesettings.ui \
+    videosettings.ui \
+    camera.ui
 
 DISTFILES += README.txt \
     boo.pro.user
