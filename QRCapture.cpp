@@ -24,10 +24,11 @@
 #include <QMainWindow>
 
 #include "QRScanner.h"
+#include "gui/activitywindow.h"
 
 Q_DECLARE_METATYPE(QCameraInfo)
 
-Camera::Camera(QWidget *parent, Activity* currentActivity) :
+Camera::Camera(QWidget *parent, Activity* currentActivity, ActivityWindow* myWin) :
 QMainWindow(parent),
 ui(new Ui::Camera),
 camera(0),
@@ -38,6 +39,7 @@ applicationExiting(false)
 {
     ui->setupUi(this);
     current = currentActivity;
+    win = myWin;
 	//Camera devices:
 
 	QActionGroup *videoDevicesGroup = new QActionGroup(this);
@@ -167,6 +169,7 @@ void Camera::processCapturedImage(int requestId, const QImage& img)
         std::cout << theUser->getUUID() << std::endl;
         Checkin *c = Checkin::createCheckin(theUser->getUserId(), current->getId());
         current->addCheckins(c);
+        win->updateList();
         this->close();
     }
 }

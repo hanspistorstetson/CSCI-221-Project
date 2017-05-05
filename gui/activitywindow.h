@@ -14,11 +14,10 @@ class ActivityWindow : public QDialog
 public:
     explicit ActivityWindow(QWidget *parent, Activity* activity);
     ~ActivityWindow();
+    void updateList();
 
 private slots:
     void on_QR_released();
-
-
     void on_back_released();
 
 private:

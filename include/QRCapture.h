@@ -5,6 +5,7 @@
 #include <QCameraImageCapture>
 #include <QMediaRecorder>
 #include "database/activity.h"
+#include "gui/activitywindow.h"
 
 #include <QMainWindow>
 
@@ -15,7 +16,7 @@ class Camera : public QMainWindow
 	Q_OBJECT
 
 	public:
-        Camera(QWidget*, Activity*);
+        Camera(QWidget*, Activity*, ActivityWindow*);
 		~Camera();
 
 	private slots:
@@ -66,6 +67,7 @@ class Camera : public QMainWindow
 	private:
 		Ui::Camera *ui;
         Activity* current;
+        ActivityWindow* win;
 
 		QCamera *camera;
 		QCameraImageCapture *imageCapture;
