@@ -19,6 +19,7 @@ class Checkin {
         size_t getID();
         void setUserId(size_t);
         void setActivity_ID(size_t);
+        static std::vector<User*> getUsersbyActivityId(size_t);
     private:
         size_t id;
         size_t userID;

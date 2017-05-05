@@ -263,3 +263,34 @@ bool Checkin::isCheckedIn(size_t userid, size_t activityid) {
 
     return true;
 }
+std::vector<User*> Checkin::getUsersbyActivityId(size_t _actid) {
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
+    vector<User*> users;
+    size_t user_id = 0;
+
+
+    const char* sql = "SELECT * FROM checkins WHERE activityid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for checkins " << sqlite3_errcode(db) << endl;
+
+    }
+    retval = sqlite3_bind_int(s, 1, _actid);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding value to SQL statement " << sql << endl;
+
+    }
+
+    while(sqlite3_step(s) == SQLITE_ROW) {
+        user_id = (size_t)sqlite3_column_int(s, 1);
+
+        User* s = User::loadUserById(user_id);
+        users.push_back(s);
+    }
+    return users;
+
+
+}
+
