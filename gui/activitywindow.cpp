@@ -7,6 +7,7 @@
 #include "QRCapture.h"
 #include "database/user.h"
 #include <vector>
+#include <iostream>
 
 ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
@@ -18,7 +19,7 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     ui->label_2->setText(name);
 
     std::vector<Checkin*> listCheckIn = activity->getCheckins();
-   for(unsigned int i; i<listCheckIn.size();i++)
+    for(unsigned int i = 0; i<listCheckIn.size();i++)
    {
 
       User* user = User::loadUserById(listCheckIn.at(i)->getUserId());
@@ -39,7 +40,7 @@ void ActivityWindow::on_QR_released()
     scanner->show();
     ui->listWidget->clear();
     std::vector<Checkin*> listCheckIn = activity->getCheckins();
-   for(unsigned int i; i<listCheckIn.size();i++)
+   for(unsigned int i = 0; i<listCheckIn.size();i++)
    {
 
       User* user = User::loadUserById(listCheckIn.at(i)->getUserId());
@@ -50,12 +51,7 @@ void ActivityWindow::on_QR_released()
 
 }
 
-
 void ActivityWindow::on_back_released()
 {
-    ListActivities la;
-    this->hide();
-    la.setModal(true);
-    la.exec();
-    this->show();
+    this->close();
 }

@@ -43,11 +43,7 @@ void ActivitySearch::on_listWidget_itemClicked(QListWidgetItem *item)
 
 void ActivitySearch::on_back_released()
 {
-    ListActivities la;
-    this->hide();
-    la.setModal(true);
-    la.exec();
-    this->show();
+    this->close();
 }
 
 void ActivitySearch::on_Search_released()
