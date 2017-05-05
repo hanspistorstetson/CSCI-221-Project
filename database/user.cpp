@@ -323,13 +323,11 @@ User* User::getUserWithUUID(std::string guid) {
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for users " << sqlite3_errcode(db) << endl;
-        return;
     }
 
     retval = sqlite3_bind_text(s, 1, guid.c_str(), guid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
     }
 
     if(sqlite3_step(s) == SQLITE_ROW) {

@@ -2,8 +2,9 @@
 #include "ui_activitywindow.h"
 #include "gui/checkinwindow.h"
 #include "gui/listactivities.h"
-#include "database/user.h"
 #include <QString>
+#include "QRCapture.h"
+
 ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
     ui(new Ui::ActivityWindow)
@@ -12,13 +13,6 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     activity=act;
     QString name = QString::fromStdString(activity->getActivityName());
     ui->label_2->setText(name);
-    std::vector<User*> userList= User::getAllUsers();
-
-    for(unsigned int i; i<userList.size();i++)
-    {
-        QString username = QString::fromStdString(userList.at(i)->getUserFname());
-        ui->listWidget->addItem(username);
-    }
 }
 
 ActivityWindow::~ActivityWindow()
@@ -28,10 +22,10 @@ ActivityWindow::~ActivityWindow()
 
 void ActivityWindow::on_QR_released()
 {
-    CheckInWindow la;
+    Camera scanner(this, activity);
     this->hide();
-    la.setModal(true);
-    la.exec();
+    scanner.setModal(true);
+    scanner.exec();
     this->show();
 }
 

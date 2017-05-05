@@ -4,19 +4,18 @@
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QMediaRecorder>
+#include "database/activity.h"
 
-#include <QMainWindow>
+#include <QDialog>
 
-QT_BEGIN_NAMESPACE
 namespace Ui { class Camera; }
-QT_END_NAMESPACE
 
-class Camera : public QMainWindow
+class Camera : public QDialog
 {
 	Q_OBJECT
 
 	public:
-		Camera(QWidget *parent = 0);
+        Camera(QWidget*, Activity*);
 		~Camera();
 
 	private slots:
@@ -66,6 +65,7 @@ class Camera : public QMainWindow
 
 	private:
 		Ui::Camera *ui;
+        Activity* current;
 
 		QCamera *camera;
 		QCameraImageCapture *imageCapture;
