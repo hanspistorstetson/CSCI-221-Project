@@ -38,7 +38,7 @@ void ActivityWindow::on_QR_released()
 {
     Camera* scanner = new Camera(this, activity);
     scanner->show();
-    ui->listWidget->clear();
+    //ui->listWidget->clear();
     std::vector<Checkin*> listCheckIn = activity->getCheckins();
    for(unsigned int i = 0; i<listCheckIn.size();i++)
    {
