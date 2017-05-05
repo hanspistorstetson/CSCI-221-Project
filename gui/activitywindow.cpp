@@ -22,11 +22,8 @@ ActivityWindow::~ActivityWindow()
 
 void ActivityWindow::on_QR_released()
 {
-    Camera scanner(this, activity);
-    this->hide();
-    scanner.setModal(true);
-    scanner.exec();
-    this->show();
+    Camera* scanner = new Camera(this, activity);
+    scanner->show();
 }
 
 

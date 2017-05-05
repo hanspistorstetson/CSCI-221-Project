@@ -21,14 +21,14 @@
 #include <QPalette>
 #include <QtGlobal>
 #include <QtWidgets>
-#include <QDialog>
+#include <QMainWindow>
 
 #include "QRScanner.h"
 
 Q_DECLARE_METATYPE(QCameraInfo)
 
 Camera::Camera(QWidget *parent, Activity* currentActivity) :
-QDialog(parent),
+QMainWindow(parent),
 ui(new Ui::Camera),
 camera(0),
 imageCapture(0),

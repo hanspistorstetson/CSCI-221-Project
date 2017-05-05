@@ -6,11 +6,11 @@
 #include <QMediaRecorder>
 #include "database/activity.h"
 
-#include <QDialog>
+#include <QMainWindow>
 
 namespace Ui { class Camera; }
 
-class Camera : public QDialog
+class Camera : public QMainWindow
 {
 	Q_OBJECT
 
