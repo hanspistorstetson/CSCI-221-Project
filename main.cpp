@@ -17,13 +17,10 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
+
     //Testing database
     //dbtest::testCreating();
     //dbtest::testLoading();
-
-    //Camera camera;
-    //camera.show();
-
 
     int retval = a.exec();
     Database::closeDatabase();

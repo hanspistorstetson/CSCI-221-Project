@@ -4,6 +4,8 @@
 #include "gui/activitywindow.h"
 #include "database/activity.h"
 #include <vector>
+#include <iostream>
+
 ListActivities::ListActivities(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ListActivities)
@@ -39,11 +41,11 @@ void ListActivities::on_listWidget_itemClicked(QListWidgetItem *item)
     {
         if(acts.at(i)->getActivityName() == item->text().toStdString())
         {
+            std::cout << acts.at(i)->getCheckins().size() << std::endl;
             ActivityWindow* la = new ActivityWindow(this, acts.at(i));
             this->hide();
             la->setModal(true);
             la->exec();
-            delete la;
             this->show();
         }
     }

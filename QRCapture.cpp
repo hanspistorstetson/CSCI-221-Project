@@ -4,9 +4,11 @@
 **/
 
 #include "QRCapture.h"
+#include "database/checkin.h"
 #include "ui_camera.h"
 #include "videosettings.h"
 #include "imagesettings.h"
+#include "database/user.h"
 #include <iostream>
 
 #include <QMediaService>
@@ -19,12 +21,14 @@
 #include <QPalette>
 #include <QtGlobal>
 #include <QtWidgets>
+#include <QMainWindow>
 
 #include "QRScanner.h"
+#include "gui/activitywindow.h"
 
 Q_DECLARE_METATYPE(QCameraInfo)
 
-Camera::Camera(QWidget *parent) :
+Camera::Camera(QWidget *parent, Activity* currentActivity, ActivityWindow* myWin) :
 QMainWindow(parent),
 ui(new Ui::Camera),
 camera(0),
@@ -33,8 +37,9 @@ mediaRecorder(0),
 isCapturingImage(false),
 applicationExiting(false)
 {
-	ui->setupUi(this);
-
+    ui->setupUi(this);
+    current = currentActivity;
+    win = myWin;
 	//Camera devices:
 
 	QActionGroup *videoDevicesGroup = new QActionGroup(this);
@@ -49,7 +54,7 @@ applicationExiting(false)
 	}
 
 	connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
-
+    setWindowModality( Qt::WindowModal );
 	setCamera(QCameraInfo::defaultCamera());
 }
 
@@ -67,11 +72,6 @@ void Camera::setCamera(const QCameraInfo &cameraInfo)
 	delete camera;
 
 	camera = new QCamera(cameraInfo);
-
-	// testing purposes
-	QCameraViewfinderSettings set;
-	set.setPixelFormat(QVideoFrame::Format_YUYV);
-	camera->setViewfinderSettings(set);
 
 	connect(camera, SIGNAL(stateChanged(QCamera::State)), this, SLOT(updateCameraState(QCamera::State)));
 	connect(camera, SIGNAL(error(QCamera::Error)), this, SLOT(displayCameraError()));
@@ -124,8 +124,6 @@ void Camera::keyPressEvent(QKeyEvent * event)
 			}
 			event->accept();
 			break;
-		default:
-			QMainWindow::keyPressEvent(event);
 	}
 }
 
@@ -137,8 +135,6 @@ void Camera::keyReleaseEvent(QKeyEvent *event)
 		case Qt::Key_CameraFocus:
 			camera->unlock();
 			break;
-		default:
-			QMainWindow::keyReleaseEvent(event);
 	}
 }
 
@@ -158,17 +154,24 @@ void Camera::processCapturedImage(int requestId, const QImage& img)
 	ui->lastImagePreviewLabel->setPixmap(QPixmap::fromImage(scaledImage));
 
 	// Display captured image for 4 seconds.
-	displayCapturedImage();
+    // displayCapturedImage();
 
 	// process QR
 	QRScanner scan;
-	QString result = scan.decode(img);
+    QString result = scan.decode(img);
 	qInfo(result.toUtf8().data());
 	if (result==QString("")) {
 		QMessageBox::warning(this, tr("Error"), QString("No QR symbols found."));
 	}
-	// do SOMETHING with the data...
-	QTimer::singleShot(4000, this, SLOT(displayViewfinder()));
+    else {
+        // do SOMETHING with the data...
+        User* theUser = User::getUserWithUUID(result.toUtf8().data());
+        std::cout << theUser->getUUID() << std::endl;
+        Checkin *c = Checkin::createCheckin(theUser->getUserId(), current->getId());
+        current->addCheckins(c);
+        win->updateList();
+        this->close();
+    }
 }
 
 void Camera::configureCaptureSettings()
@@ -362,4 +365,10 @@ void Camera::closeEvent(QCloseEvent *event)
 	} else {
 		event->accept();
 	}
+}
+
+void Camera::on_Cancel_released()
+{
+    camera->stop();
+    this->close();
 }

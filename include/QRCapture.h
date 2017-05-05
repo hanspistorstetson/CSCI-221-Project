@@ -4,19 +4,19 @@
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QMediaRecorder>
+#include "database/activity.h"
+#include "gui/activitywindow.h"
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
 namespace Ui { class Camera; }
-QT_END_NAMESPACE
 
 class Camera : public QMainWindow
 {
 	Q_OBJECT
 
 	public:
-		Camera(QWidget *parent = 0);
+        Camera(QWidget*, Activity*, ActivityWindow*);
 		~Camera();
 
 	private slots:
@@ -59,13 +59,17 @@ class Camera : public QMainWindow
 		void readyForCapture(bool ready);
 		void imageSaved(int id, const QString &fileName);
 
-	protected:
+        void on_Cancel_released();
+
+protected:
 		void keyPressEvent(QKeyEvent *event);
 		void keyReleaseEvent(QKeyEvent *event);
 		void closeEvent(QCloseEvent *event);
 
 	private:
 		Ui::Camera *ui;
+        Activity* current;
+        ActivityWindow* win;
 
 		QCamera *camera;
 		QCameraImageCapture *imageCapture;
