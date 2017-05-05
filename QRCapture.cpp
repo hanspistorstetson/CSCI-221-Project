@@ -366,3 +366,9 @@ void Camera::closeEvent(QCloseEvent *event)
 		event->accept();
 	}
 }
+
+void Camera::on_Cancel_released()
+{
+    camera->stop();
+    this->close();
+}

@@ -59,7 +59,9 @@ class Camera : public QMainWindow
 		void readyForCapture(bool ready);
 		void imageSaved(int id, const QString &fileName);
 
-	protected:
+        void on_Cancel_released();
+
+protected:
 		void keyPressEvent(QKeyEvent *event);
 		void keyReleaseEvent(QKeyEvent *event);
 		void closeEvent(QCloseEvent *event);
