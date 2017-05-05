@@ -52,7 +52,7 @@ applicationExiting(false)
 	}
 
 	connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
-
+    setWindowModality( Qt::WindowModal );
 	setCamera(QCameraInfo::defaultCamera());
 }
 
