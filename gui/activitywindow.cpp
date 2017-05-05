@@ -42,11 +42,11 @@ void ActivityWindow::on_QR_released()
     std::vector<Checkin*> listCheckIn = activity->getCheckins();
    for(unsigned int i = 0; i<listCheckIn.size();i++)
    {
-
       User* user = User::loadUserById(listCheckIn.at(i)->getUserId());
-        QString name = QString::fromStdString(user->getUserFname());
-       ui->listWidget->addItem(name);
+      QString name = QString::fromStdString(user->getUserFname());
+      ui->listWidget->addItem(name);
    }
+   QCoreApplication::processEvents();
 
 
 }
