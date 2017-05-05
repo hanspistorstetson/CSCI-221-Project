@@ -1,6 +1,6 @@
 #ifndef USER_VIEW_H
 #define USER_VIEW_H
-
+#include "database/user.h"
 #include <QDialog>
 
 namespace Ui {
@@ -12,7 +12,7 @@ class user_view : public QDialog
     Q_OBJECT
 
 public:
-    explicit user_view(QWidget *parent = 0);
+    explicit user_view(QWidget *parent, User*);
     ~user_view();
 
 private slots:
