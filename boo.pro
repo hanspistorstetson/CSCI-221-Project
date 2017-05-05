@@ -102,14 +102,7 @@ DISTFILES += README.txt \
 DEFINES += QT_DEPRECATED_WARNINGS
 DEFINES += GUID_WINDOWS
 LIBS += -lole32
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> ddcea65051d07737ec3f7d88cafc5f94e846223c
-=======
-
->>>>>>> ddcea65051d07737ec3f7d88cafc5f94e846223c
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.

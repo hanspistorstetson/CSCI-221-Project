@@ -27,17 +27,11 @@ void UserCreateWindow::on_createUserButton_released()
     std::string lastName = ui->lastNameTF->text().toStdString();
     std::string userName = ui->userNameTF->text().toStdString();
 
-<<<<<<< HEAD
-
-    User::createUser(userName, firstName, lastName, 1);
 
     QRHandler handler;
 
 
-=======
-    QRHandler handler;
 
->>>>>>> ddcea65051d07737ec3f7d88cafc5f94e846223c
     User* newUser = User::createUser(userName, firstName, lastName, 1);
     std::string UUID = newUser->getUUID();
     std::cout << UUID << std::endl;

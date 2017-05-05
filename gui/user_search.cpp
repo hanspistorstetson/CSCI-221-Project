@@ -15,7 +15,7 @@ user_search::user_search(QWidget *parent) :
     ui->setupUi(this);
     std::vector<User*>listOfUsers;
     listOfUsers=User:: getAllUsers();
-    std::cout << listOfUsers.at(14)->getUserFname() << std::endl;
+//    std::cout << listOfUsers.at(14)->getUserLname() << std::endl;
     for (unsigned int t = 0; t<listOfUsers.size();t++)
     {
         QString name = QString::fromStdString(listOfUsers.at(t)->getUserLname());
@@ -57,7 +57,7 @@ void user_search::on_listWidget_itemClicked(QListWidgetItem *item)
 
     for(unsigned int i=0;i<userSearch.size();i++)
     {
-        QString name = QString::fromStdString(userSearch.at(i)->getUserFname());
+        QString name = QString::fromStdString(userSearch.at(i)->getUserLname());
 
         if(item->text().toStdString() == userSearch.at(i)->getUserLname())
         {

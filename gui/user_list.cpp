@@ -55,10 +55,10 @@ void user_list::on_listWidget_itemClicked(QListWidgetItem *item)
 {
 
     std::vector<User*> user = User::getAllUsers();
-    std::string val = user.at(i)->getUsername();
-    std::string val2 =  item->text().toStdString();
-    std::cout << val << "<- val,";
-    std::cout << val2;
+//    std::string val = user->getUsername();
+//    std::string val2 =  item->text().toStdString();
+//    std::cout << val << "<- val,";
+//    std::cout << val2;
 
 //  /*  User(size_t, std::string, std::string, std::string, std::string, size_t);
 //    size_t userid;
