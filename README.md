@@ -3,14 +3,14 @@
 Spring 2017 Stetson University Software Development I Class Project.
 Professor: Joshua Eckroth
 Students:
-Ryan Anderson
-Jesus Argel
-Brandon Belna
-Hudson Devoe
-Hayden Estey
-Mason Perrella
-Hans Pistor
-Dearvis Troutman
+Ryan Anderson,
+Jesus Argel,
+Brandon Belna,
+Hudson Devoe,
+Hayden Estey,
+Mason Perrella,
+Hans Pistor,
+Dearvis Troutman,
 
 
 
